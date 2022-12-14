@@ -106,80 +106,52 @@ header {
 /* End: header */
 
 /* Begin: Information */
-.base1 {
-    padding-top: 50px;
-}
 
-.base1__heading {
-    font-size: 35px;
-}
 
-.base1__description {
-    font-size: 18px;
-    color: #999;
-    padding: 20px 0px 10px 0px;;
-}
+    /* Begin: base1 */
+    .base1 {
+        margin-top: 70px;
+    }
 
-.heading__infor {
-    font-size: 30px;
-    color: var(--primary-color);
-    font-weight: 500;
-    margin-bottom: 10px;
-}
+    .base1__wrap {
+        background-color: #fff8dc;
+    }
 
-.node-singin {
-    color: #999;
-    font-size: 14px;
-}
+    .order {
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-.node-singin a {
-    color: var(--primary-color);
-}
+    td{
+        padding-bottom: 10px;
+    }
 
-.base1__hand {
-    width: 95%;
-    border-top: 1px solid #ccc;
-    padding-top: 20px;
-}
+    tr td:nth-child(2) {
+        padding-left: 20px;
+    }
 
-.form-infor {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
+    .id {
+        font-weight: 600;
 
-.form-group {
-    width: 46%;
-    margin-bottom: 40px;
-}
+    }
 
-.form-group > label, .sex {
-    font-size: 20px;
-    font-weight: 500;
-    
-}
+    .table2 tr:nth-child(3) td {
+        border-top: 1px solid #ccc;
+        padding-top: 10px;
+    }
+
+    .pay {
+        color: rgb(214, 66, 66);
+        font-weight: 500;
+    }
+    /* Begin: base2 */
 
 sup {
     font-size: 9px;
     color: var(--primary-color);
     margin-left: 3px;
-}
-
-.form-group input {
-    margin-top: 10px;
-    line-height: 40px;
-    padding: 0px 10px;
-    width: 100%;
-    outline: none;
-    border: 1.5px solid #999;
-}
-
-.form-group input:focus {
-    border: 1.5px solid var(--primary-color);
-}
-
-.input-radio {
-    width: 10% !important;
 }
 
 .base2 {
@@ -278,7 +250,7 @@ sup {
 
 /* modal momo */
 
-.modal {
+/* .modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -289,5 +261,6 @@ sup {
     justify-content: center;
     align-items: center;
     display: none;
-}
+} */
 
+/* modal momo */
