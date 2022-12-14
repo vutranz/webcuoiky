@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./asset/css/bootstrap.css">
+    <link rel="stylesheet" href="./asset/css/cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="main">
+        <!-- Begin: header -->
+        <header>
+            <div class="headerBox">
+                <div class="headerBox__logo">
+                    <a href=""><img
+                            src="https://images.squarespace-cdn.com/content/v1/5a297d3dfe54eff9efa967c0/1513717270167-MOBLZQOP1MY8Z6M77L33/Logo_blue.png?format=300w"
+                            class="logo"></img></a>
+                    <p class="nameHotel">Hotel <span>BlueSky</span></p>
+                </div>
+                <div class="headerCtrl">
+                    <a onclick="SingUp()" href="./register.html" class="singUp">Sing Up</a>
+                    <a onclick="SingIn()" href="./login.html" class="singIn">Sing In</a>
+                    <!-- <p class="userLogin">
+                    <i class="fa-regular fa-user"></i>
+                    Nguyen Minh Nghia
+                </p> -->
+                </div>
+            </div>
+        </header>
+        <!-- End: header -->
+
+        <!-- Begin: Cart Items -->
+        <div class="container">
+            <div class="row">
+                <!--item -->
+                <div class="items">
+                    <div class="item col-lg-9">
+                        <div class="item__img">
+                            <img src="https://poliva.vn/wp-content/uploads/2019/08/Boutique-hotel-la-gi-2.jpg" alt="">
+                        </div>
+                        
+                        <div class="item__content">
+                            <h4 class="item__content-name">King Size Bedroom</h4>
+                            <i class="fa-solid fa-location-dot icon-local"> <span>HCM City</span></i><br>
+                            <p>Latest booking: 14 hours ago</p>
+                        </div>
+                        <div class="price">
+                                <p>From</p>
+                                <div class="price-label">$ 100</div>
+                                <span>per night</span>
+                        </div>
+                    </div>
+                    <div class="button col-lg-3">
+                        <a href="" class="button-select">Select</a>
+                        <a href="" class="button-delete">Delete</a>
+                    </div>
+                </div>
+
+                <div class="items">
+                    <div class="item col-lg-9">
+                        <div class="item__img">
+                            <img src="https://poliva.vn/wp-content/uploads/2019/08/Boutique-hotel-la-gi-2.jpg" alt="">
+                        </div>
+                        
+                        <div class="item__content">
+                            <h4 class="item__content-name">King Size Bedroom</h4>
+                            <i class="fa-solid fa-location-dot icon-local"> <span>HCM City</span></i><br>
+                            <p>Latest booking: 14 hours ago</p>
+                        </div>
+                        <div class="price">
+                                <p>From</p>
+                                <div class="price-label">$ 100</div>
+                                <span>per night</span>
+                        </div>
+                    </div>
+                    <div class="button col-lg-3">
+                        <a href="" class="button-select">Select</a>
+                        <a href="" class="button-delete">Delete</a>
+                    </div>
+                </div>
+                <!-- item -->
+            </div>
+        </div>
+        <!-- End: Cart Items -->
+        
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./asset/css/bootstrap.css">
+    <link rel="stylesheet" href="./asset/css/detail_room.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="main">
+        <!-- Begin: Header -->
+    <header>
+        <div class="headerBox">
+            <div class="headerBox__logo">
+                <a href=""><img
+                        src="https://images.squarespace-cdn.com/content/v1/5a297d3dfe54eff9efa967c0/1513717270167-MOBLZQOP1MY8Z6M77L33/Logo_blue.png?format=300w"
+                        class="logo"></img></a>
+                <p class="nameHotel">Hotel <span>BlueSky</span></p>
+            </div>
+
+            <a href="" class="carts">
+                <div class="cart__count">1</div>
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+
+            <div class="headerCtrl">
+                <a onclick="SingUp()" href="./register.html" class="singUp">Sing Up</a>
+                <a onclick="SingIn()" href="./login.html" class="singIn">Sing In</a>
+                <!-- <p class="userLogin">
+                    <i class="fa-regular fa-user"></i>
+                    Nguyen Minh Nghia
+                </p> -->
+            </div>
+        </div>
+    </header>
+
+    <!-- End: Header -->
+
+        <div class="container">
+            <div class="row">
+                <div class="base1 col-lg-9">
+                    <div class="name">
+                        <h2 class="name__room">Classic Double Room</h2>
+                        <p class="name__hotel">/ BlueSky</p>
+                    </div>
+
+                    <div class="base1__img">
+                        <img src="https://assets-global.website-files.com/5c6d6c45eaa55f57c6367749/624b471bdf247131f10ea14f_61d31b8dbff9b500cbd7ed32_types_of_rooms_in_a_5-star_hotel_2_optimized_optimized.jpeg"
+                            alt="">
+                    </div>
+
+                    <div class="base1__description">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor laboriosam perspiciatis,
+                            officiis nam non animi voluptas totam quis soluta aliquid itaque, eos repellat dolore
+                            tenetur repudiandae, accusantium explicabo illum praesentium.</p>
+                    </div>
+                </div>
+                <div class="base2 col-lg-3">
+
+                    <div class="base2__wrap-price">
+                        <img src="https://images.squarespace-cdn.com/content/v1/5a297d3dfe54eff9efa967c0/1513717270167-MOBLZQOP1MY8Z6M77L33/Logo_blue.png?format=300w" alt="">
+                        <div class="price-one-night">
+                            <p class="one-night">Price <br> for 1 night</p>
+                            <p class="price">$ 100</p> 
+                        </div>
+                    </div>
+
+                    <a href="" class="base2__button-book">Book Now</a>
+
+                    <div class="base2__text-detail-room">
+                        <p class="heading-detail-room">ROOM DETAILS</p>
+                        <div class="infor-room">
+                            <p>Beds :<span class="detail-infor">1 double or 2 twin</span></p>
+                            <p>Floor area :<span class="detail-infor">19 m<sup>2</sup></span></p>
+                            <p>Max Guests :<span class="detail-infor">2</span></p>
+                            <p>Max Kids :<span class="detail-infor">3</span></p>
+                        </div>
+                        <div class="available-services">
+                            <div class="service">
+                                <i class="fa-sharp fa-solid fa-circle icon-dot"></i>
+                                <p class="service__name">Free wired Internet</p>
+                            </div>
+                            <div class="service">
+                                <i class="fa-sharp fa-solid fa-circle icon-dot"></i>
+                                <p class="service__name">Coffee/tea maker</p>
+                            </div>
+                            <div class="service">
+                                <i class="fa-sharp fa-solid fa-circle icon-dot"></i>
+                                <p class="service__name">Air conditioning</p>
+                            </div>
+                            <div class="service">
+                                <i class="fa-sharp fa-solid fa-circle icon-dot"></i>
+                                <p class="service__name">Cable TV service</p>
+                            </div>
+                            <div class="service">
+                                <i class="fa-sharp fa-solid fa-circle icon-dot"></i>
+                                <p class="service__name">Free newspaper</p>
+                            </div>
+                        </div>
+                </div>
+                <div class="extra-service">
+                    <p class="heading-detail-room">EXTRA SERVICE</p>
+                    <div class="check-services">
+                        <div class="service">
+                            <input type="checkbox" name="" id="bres">
+                            <label for="bres" class="service__name action">Breakfast</label>
+                            <div class="service__price">$10</div>
+                        </div>
+                        <div class="service">
+                            <input type="checkbox" name="" id="lunch">
+                            <label for="lunch" class="service__name action">Lunch</label>
+                            <div class="service__price">$30</div>
+                        </div>
+                        <div class="service">
+                            <input type="checkbox" name="" id="dinner">
+                            <label for="dinner" class="service__name action">Dinner</label>
+                            <div class="service__price">$20</div>
+                        </div>
+                        <div class="service">
+                            <input type="checkbox" name="" id="bed">
+                            <label for="bed" class="service__name action">Extra bed</label>
+                            <div class="service__price">$15</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        </div>
+    <div class="footer">
+            
+    </div>
+</body>
+
+</html>

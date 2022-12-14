@@ -1,0 +1,295 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #27c7df;
+    --background-black: #262729;
+}
+
+/* Begin: header */
+header {
+    background-color: var(--background-black) ;
+    width: 100%;
+    height: 80px;
+    display: flex;
+}
+
+.headerBox {
+    width: 1200px;
+    margin: auto;
+    display: flex;
+    color: #fff;
+}
+
+.headerBox__logo{
+    display: flex;
+    margin-right: auto;
+    align-items: center;
+    
+}
+
+.logo {
+    width: 60px;
+    background-color: #fff;
+    border-radius: 50%;
+    
+}
+
+.nameHotel {
+    margin-left: 10px;
+    font-weight: 600; 
+}
+
+.nameHotel span {
+    color: var(--primary-color); 
+}
+
+.headerCtrl {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.headerCtrl > a{
+    margin-left:20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    margin-right: 5px;
+}
+
+.headerCtrl > a:hover {
+    color: var(--primary-color);
+}
+
+
+.carts {
+    margin-right: 20px;
+    position: relative;
+}
+
+.carts:hover > div{
+    color: #fff;
+    background-color: var(--primary-color);
+}
+
+.carts:hover > i {
+    color: var(--primary-color);
+}
+
+.cart__count{
+    background-color: #fff;
+    border-radius: 50%;
+    color: #000;
+    padding: 1px 5px;
+    position: absolute;
+    right: -9px;
+    top: 9px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.carts i {
+    color: #fff;
+    line-height: 63px;
+}
+
+
+
+/* End: header */
+
+
+.base1 {
+    padding-top: 30px ;
+}
+
+.name {
+    display: flex;
+    padding-bottom: 20px;
+}
+
+.name__room {
+    font-weight: 500;
+}
+
+.name__hotel {
+    align-self: flex-end;
+    font-size: 17px;
+    color: var(--primary-color);
+}
+
+.base1__img > img {
+    width: 100%;
+}
+
+.base1__description p {
+    font-size: 18px;
+    line-height: 1.4; 
+    text-align: justify;
+    color: #999;
+    padding: 20px 0px;
+}
+
+/* Base2 */
+
+.base2 {
+    padding-left: 20px;
+    padding-top:86px;
+}
+
+.base2__wrap-price {
+    border: 1px solid #ccc;
+}
+
+.base2__wrap-price > img {
+    width: 25%;
+    position: relative;
+    transform: translateX(-50%);
+    left: 50%;
+    padding: 10px 0px;
+}
+
+.price-one-night {
+    border-top: 1px solid #ccc;
+    width: 80%;
+    margin: auto;
+    padding: 20px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.one-night {
+    font-size: 16px;
+    color: #999;
+    align-self: center;
+    font-weight: 500;
+}
+
+.price {
+    color: var(--primary-color);
+    font-size: 40px;
+    font-weight: 500;
+}
+
+.base2__button-book {
+    display: block;
+    text-decoration: none;
+    width: 100%;
+    height: 55px;
+    background-color: var(--primary-color);
+    color: #fff;
+    font-weight: 600;
+    font-size: 25px;
+    text-align: center;
+    margin-top: 25px;
+    line-height: 55px;
+    margin-bottom: 30px;
+}
+
+.base2__button-book:hover {
+    cursor: pointer;
+    background-color: #0dbbd6;
+}
+
+.base2__text-detail-room {
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+.heading-detail-room {
+    font-size: 20px;
+    font-weight: 500;
+    padding-bottom: 20px;
+}
+
+.infor-room{
+    width: 95%;
+    margin: auto;
+    border-top: 1px solid #ccc;
+    padding: 20px 0px;
+}
+
+.infor-room > p {
+    font-size: 18px;
+    font-weight: 500;
+    padding-bottom: 10px;
+}
+
+.infor-room .detail-infor {
+    color: var(--primary-color);
+    margin-left: 5px;
+}
+
+sup {
+    font-size: 13px;
+}
+
+.available-services {
+    width: 95%;
+    border-top: 1px solid #ccc;
+    padding-top: 30px;
+}
+
+.service {
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.icon-dot {
+    color: var(--primary-color);
+    font-size: 13px;
+}
+
+.service > .service__name {
+    font-size: 18px;
+    padding-left: 20px;
+    font-weight: 500;
+    margin-right:auto;
+}
+
+.extra-service {
+    margin-top: 30px;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+.check-services {
+    width: 95%;
+    margin: auto;
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+}
+
+.service__price {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+input[type='checkbox'] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    
+}
+
+
+input[type='checkbox']:checked ~ .action {
+    color: var(--primary-color);
+}
+
+input[type='checkbox']:checked ~ .service__price {
+    font-weight: 600;
+}
+
+
+/* Footer */
+.footer {
+    background-color: #1a1c28;
+    width: 100%;
+    height: 100px;
+    margin-top: 50px;
+}
