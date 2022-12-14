@@ -1,3 +1,7 @@
+<?php
+    require_once 'connect.php';  
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +27,7 @@
                 <p class="nameHotel">Hotel <span>BlueSky</span></p>
             </div>
 
-            <a href="" class="carts">
+            <a href="cart.html" class="carts">
                 <div class="cart__count">1</div>
                 <i class="fa-solid fa-cart-shopping"></i>
             </a>
@@ -42,8 +46,40 @@
     <!-- End: Header -->
     <div class="main container">
         <div class="products row">
+        <?php
+            $search=$_POST['search'];
+            $ngayden=$_POST['ngayden'];
+             $sql = "SELECT * FROM `phong` WHERE songuoi='$search'";
 
-            <div class="product col-lg-4">
+             try{
+                 $stmt = $conn->prepare($sql);
+                 $stmt->execute(); 
+             }catch(PDOException $ex){
+                 die;
+             }
+     
+             while($row=$stmt->fetch(PDO::FETCH_ASSOC))
+             {
+                $id=$row["maphong"];
+                $image = $row["image"];
+                $price=$row["gia"];
+                $name=$row["name"];
+                echo "<div class=\"product col-lg-4\">";
+                echo "<div class=\"cart\">";
+                echo    "<div class=\"product__img\">";
+                echo        "<img src=\"$image\" >";
+                echo    "</div>";
+                echo    "<div class=\"product__description\">";
+                echo        "<h3 class=\"name\">$name</h3>";
+                echo        "<p class=\"cost\">$price</p>";
+                echo        "<i class=\"fa-solid fa-location-dot icon-local\"> <span>HCM City</span></i><br>";
+                echo        "<a href=\"detail_room.php?room=$id\" class=\"button-select\">Select</a>";
+                echo    "</div>";
+                echo "</div>";
+                echo "</div>"; 
+             }
+          ?>
+            <!-- <div class="product col-lg-4">
                 <div class="cart">
                     <div class="product__img">
                         <img src="https://poliva.vn/wp-content/uploads/2019/08/Boutique-hotel-la-gi-2.jpg" alt="">
@@ -55,35 +91,9 @@
                         <div class="button-select">Select</div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
-            <div class="product col-lg-4">
-                <div class="cart">
-                    <div class="product__img">
-                        <img src="https://poliva.vn/wp-content/uploads/2019/08/Boutique-hotel-la-gi-2.jpg" alt="">
-                    </div>
-                    <div class="product__description">
-                        <h3 class="name">King Size Bedroom</h3>
-                        <p class="cost">$ 100</p>
-                        <i class="fa-solid fa-location-dot icon-local"> <span>HCM City</span></i><br>
-                        <div class="button-select">Select</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="product col-lg-4">
-                <div class="cart">
-                    <div class="product__img">
-                        <img src="https://poliva.vn/wp-content/uploads/2019/08/Boutique-hotel-la-gi-2.jpg" alt="">
-                    </div>
-                    <div class="product__description">
-                        <h3 class="name">King Size Bedroom</h3>
-                        <p class="cost">$ 100</p>
-                        <i class="fa-solid fa-location-dot icon-local"> <span>HCM City</span></i><br>
-                        <div class="button-select">Select</div>
-                    </div>
-                </div>
-            </div>
+           <a><?php echo $ngayden;?></a>
 
         </div>
     </div>

@@ -52,29 +52,29 @@
         <div class="slide__input">
             <div class="slide__input-box">
                 <p class="inputQuestion"> Where are you going?</p>
-                <form class="slide-form">
+                <form method="post" action="product.php" class="slide-form">
 
                     <div class="slide-form__group form-date">
                         <label for="slide-formCheckIn">
                             <iconify-icon icon="mdi:calendar-arrow-right" class="slide-formIcon"></iconify-icon>
                         </label>
-                        <input type="date" id="slide-formCheckIn" class="slide-form__inputDate input" name="slide-dateCheckIn" value="">
+                        <input type="date" id="slide-formCheckIn" class="slide-form__inputDate input" name="ngayden" value="">
                     </div>
 
                     <div class="slide-form__group form-date">
                         <label for="">
                             <iconify-icon icon="mdi:calendar-arrow-left" class="slide-formIcon"></iconify-icon>
                         </label>
-                        <input type="date" class="slide-form__inputDate input" name="slide-dateCheckOut" value="">
+                        <input type="date" class="slide-form__inputDate input" name="ngaydi" value="">
                     </div>
 
                     <div class="slide-form__group form-people">
                         <label for="">
                             <iconify-icon icon="ri:user-add-line" class="slide-formIcon"></iconify-icon>
                         </label>
-                        <input type="" number class="side-form__inputPeople input" name="slide-peopleInRoom" value="1">
+                        <input type="" number class="side-form__inputPeople input" name="search" value="1">
                     </div>
-                    <input type="submit" value="SEARCH" name="slide-submit" class="slideSubmit">
+                    <button type="submit"   class="slideSubmit">SEARCH</button>
                     
                 </form>
             </div>

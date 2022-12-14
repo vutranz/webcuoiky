@@ -1,3 +1,28 @@
+<?php
+    // SELECT * FROM `phong` WHERE maphong=20
+    require_once 'connect.php';  
+    $id=$_GET['room'];
+    $sql = "SELECT * FROM `phong` WHERE maphong='$id'";
+
+    try{
+        $stmt = $conn->prepare($sql);
+        $stmt->execute(); 
+    }catch(PDOException $ex){
+        die;
+    }
+
+    while($row=$stmt->fetch(PDO::FETCH_ASSOC))
+    {
+       $id=$row["maphong"];
+       $image = $row["image"];
+       $price=$row["gia"];
+       $name=$row["name"];
+       $trangthai=$row["trangthai"];
+       $songuoi=$row["songuoi"];
+       $loaiphong=$row["loaiphong"];
+       $mota=$row["mota"];
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,14 +75,12 @@
                     </div>
 
                     <div class="base1__img">
-                        <img src="https://assets-global.website-files.com/5c6d6c45eaa55f57c6367749/624b471bdf247131f10ea14f_61d31b8dbff9b500cbd7ed32_types_of_rooms_in_a_5-star_hotel_2_optimized_optimized.jpeg"
-                            alt="">
+                        <img src="<?php echo $image;?>">
+                            
                     </div>
 
                     <div class="base1__description">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor laboriosam perspiciatis,
-                            officiis nam non animi voluptas totam quis soluta aliquid itaque, eos repellat dolore
-                            tenetur repudiandae, accusantium explicabo illum praesentium.</p>
+                        <p><?php echo $mota;?></p>
                     </div>
                 </div>
                 <div class="base2 col-lg-3">
@@ -66,19 +89,18 @@
                         <img src="https://images.squarespace-cdn.com/content/v1/5a297d3dfe54eff9efa967c0/1513717270167-MOBLZQOP1MY8Z6M77L33/Logo_blue.png?format=300w" alt="">
                         <div class="price-one-night">
                             <p class="one-night">Price <br> for 1 night</p>
-                            <p class="price">$ 100</p> 
+                            <p class="price"><?php echo $price;?> VND</p> 
                         </div>
                     </div>
 
-                    <a href="" class="base2__button-book">Book Now</a>
+                    <a href="pay.php?roomdetail=<?php echo $id;?>" class="base2__button-book">Book Now</a>
 
                     <div class="base2__text-detail-room">
                         <p class="heading-detail-room">ROOM DETAILS</p>
                         <div class="infor-room">
-                            <p>Beds :<span class="detail-infor">1 double or 2 twin</span></p>
-                            <p>Floor area :<span class="detail-infor">19 m<sup>2</sup></span></p>
-                            <p>Max Guests :<span class="detail-infor">2</span></p>
-                            <p>Max Kids :<span class="detail-infor">3</span></p>
+                            <p>Loại phòng :<span class="detail-infor"><?php echo $loaiphong;?></span></p>
+                            <p>Số người :<span class="detail-infor"><?php echo $songuoi;?></span></p>
+                            <p>Trạng thái :<span class="detail-infor"><?php echo $trangthai;?></span></p>
                         </div>
                         <div class="available-services">
                             <div class="service">

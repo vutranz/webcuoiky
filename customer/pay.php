@@ -1,3 +1,27 @@
+<?php
+   require_once 'connect.php';  
+   $id=$_GET['roomdetail'];
+   $sql = "SELECT * FROM `phong` WHERE maphong='$id'";
+
+   try{
+       $stmt = $conn->prepare($sql);
+       $stmt->execute(); 
+   }catch(PDOException $ex){
+       die;
+   }
+
+   while($row=$stmt->fetch(PDO::FETCH_ASSOC))
+   {
+      $id=$row["maphong"];
+      $image = $row["image"];
+      $price=$row["gia"];
+      $name=$row["name"];
+      $trangthai=$row["trangthai"];
+      $songuoi=$row["songuoi"];
+      $loaiphong=$row["loaiphong"];
+      $mota=$row["mota"];
+   }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -96,16 +120,16 @@
                 <div class="base2 col-lg-3">
                     <p class="base2__heading">BOOKING DETAILS</p>
                     <div class="base2__img">
-                        <img src="https://assets-global.website-files.com/5c6d6c45eaa55f57c6367749/624b471bdf247131f10ea14f_61d31b8dbff9b500cbd7ed32_types_of_rooms_in_a_5-star_hotel_2_optimized_optimized.jpeg" alt="">
+                        <img src="<?php  echo $image;?>" alt="">
                         <p>Hilton Hotel</p>
                     </div>
 
                     <div class="base2__room-detail">
                         <div class="infor-room">
-                            <p>1 Room :<span class="detail-infor">King Guest Room</span></p>
+                            <p>Room :<span class="detail-infor"><?php echo $name;?></span></p>
                             <p>Check-in :<span class="detail-infor">Mon, Apr 13</span></p>
                             <p>Check-out :<span class="detail-infor">Tue, Apr 14</span></p>
-                            <p>Persons :<span class="detail-infor">2</span></p>
+                            <p>Persons :<span class="detail-infor"><?php echo $songuoi;?></span></p>
                         </div>
                     </div>
 
