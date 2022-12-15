@@ -74,6 +74,7 @@
                 echo        "<p class=\"cost\">$price</p>";
                 echo        "<i class=\"fa-solid fa-location-dot icon-local\"> <span>HCM City</span></i><br>";
                 echo        "<a href=\"detail_room.php?room=$id\" class=\"button-select\">Select</a>";
+                echo        "<button>Add to cart</button>";
                 echo    "</div>";
                 echo "</div>";
                 echo "</div>"; 
