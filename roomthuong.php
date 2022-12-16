@@ -17,7 +17,7 @@
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/shop-homepage.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
 
   </head>
 
@@ -56,18 +56,9 @@
 
       <div class="row">
 
-        <div class="col-lg-3">
+      
 
-          <h1 class="my-4">Room Hotel</h1>
-          <div class="list-group">
-            <a href="roomthuong.php" class="list-group-item">Phòng bình thường</a>
-            <a href="roomvip.php" class="list-group-item">Phòng VIP</a>
-            <a href="roomdacbiet.php" class="list-group-item">Phòng đặc biệt</a>
-          </div>
-        </div>
-        <!-- /.col-lg-3 -->
-
-        <div class="col-lg-9">
+        <div class="col-lg-12">
 
           <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -76,14 +67,14 @@
               <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner" role="listbox">
-              <div class="carousel-item active">
-                <img class="d-block img-fluid" src="https://d2ile4x3f22snf.cloudfront.net/wp-content/uploads/sites/174/2017/08/10060013/Deluxe-3091.jpg" alt="First slide">
+              <div class="carousel-item active w-100">
+                <img class="d-block img-fluid w-100" src="https://d2ile4x3f22snf.cloudfront.net/wp-content/uploads/sites/174/2017/08/10060013/Deluxe-3091.jpg" alt="First slide">
               </div>
-              <div class="carousel-item">
-                <img class="d-block img-fluid" src="https://dyf.vn/wp-content/uploads/2021/11/thiet-ke-noi-that-phong-khach-san-hien-dai.jpg" alt="Second slide">
+              <div class="carousel-item w-100">
+                <img class="d-block img-fluid w-100" src="https://dyf.vn/wp-content/uploads/2021/11/thiet-ke-noi-that-phong-khach-san-hien-dai.jpg" alt="Second slide">
               </div>
-              <div class="carousel-item">
-                <img class="d-block img-fluid" src="https://www.hotelgrandsaigon.com/wp-content/uploads/sites/227/2017/12/GRAND_PDLK_01.jpg" alt="Third slide">
+              <div class="carousel-item w-100">
+                <img class="d-block img-fluid w-100" src="https://www.hotelgrandsaigon.com/wp-content/uploads/sites/227/2017/12/GRAND_PDLK_01.jpg" alt="Third slide">
               </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -95,6 +86,38 @@
               <span class="sr-only">Next</span>
             </a>
           </div>
+
+          <div class="w-100">
+          <h1 class="my-4">Room Category</h1>
+          <div class="list-group">
+            <a href="roomthuong.php" class="list-group-item a">Phòng bình thường</a>
+            <a href="roomvip.php" class="list-group-item a">Phòng VIP</a>
+            <a href="roomdacbiet.php" class="list-group-item a">Phòng đặc biệt</a>
+          </div>
+        </div>
+
+        <!-- Begin: Search -->
+        <div class="input-search">
+
+          <div class="form-group">
+            <label for="checkin">Check In</label>
+            <input type="date" name="checkin" id="">
+          </div>
+
+          <div class="form-group">
+            <label for="checkout">Check Out</label>
+            <input type="date" name="checkout" id="">
+          </div>
+
+          <div class="form-group">
+            <label for="people">People</label>
+            <input type="number" name="people" id="">
+          </div>
+
+          <input type="submit" value="Search">
+        </div>
+
+        <!-- End: Search -->
 
           <div class="row">
           <?php
@@ -122,7 +145,7 @@
 
                 echo "<div class=\"col-lg-4 col-md-6 mb-4\">";
                 echo "<div class=\"card h-100\">";
-                echo "<a href=\"#\"><img class=\"card-img-top\" src=\"$image\" ></a>";
+                echo "<a href=\"#\"><img class=\"card-img-top img-hand\" src=\"$image\" ></a>";
                 echo "<div class=\"card-body\">";
                 echo "<h4 class=\"card-title\">";
                 echo "<a href=\"#\"> $name</a>";
