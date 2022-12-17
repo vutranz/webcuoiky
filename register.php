@@ -15,16 +15,29 @@
     $diachi = $_POST['diachi'];
    
    
-
     $sql = 'INSERT INTO `user`(`username`, `password`, `name`, `age`, `sex`, `isadmin`, `diachi`) VALUES(?,?,?,?,?,?,?)';
+    $sql1 = "SELECT * FROM `user` WHERE username='$username'";
 
     try{
+    
+        if(empty($password) || empty($username) || empty($fullname) || empty($age) || empty($gioitinh) || empty($diachi))
+        {
+            header("location:FormRegister.php?error=Không được để trống thông tin"); 
+            exit(); 
+        }
+        else if($sql1==$username)
+        {
+            header("location:FormRegister.php?error=Tài khoản đã tồn tại"); 
+            exit(); 
+            
+        }
+        else{
+            $stmt = $conn->prepare($sql);
+            $stmt->execute(array($username,$password,$fullname,$age,$gioitinh,0,$diachi));
+            header("location:./FormLogin.php"); 
+            die();
+        }
         
-        $stmt = $conn->prepare($sql);
-        $stmt->execute(array($username,$password,$fullname,$age,$gioitinh,0,$diachi));
-        header("location:./FormLogin.php"); 
-        // echo "<script>location.href ='index.php' </script>";
-        die();
     }
     
     catch(PDOException $ex){

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./bootstrap.css">
-    <link rel="stylesheet" href="./add-room.css">
+    <link rel="stylesheet" href="./edit-room.css">
     <script type="text/javascript" src="./ckeditor/ckeditor.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
@@ -21,7 +21,7 @@
             <div class="headerBox">
                 <i class="fa-solid fa-bars icon-menu"></i>
                 <div class="headerBox__logo">
-                    <a href=""><img
+                    <a href="../index.php"><img
                             src="https://images.squarespace-cdn.com/content/v1/5a297d3dfe54eff9efa967c0/1513717270167-MOBLZQOP1MY8Z6M77L33/Logo_blue.png?format=300w"
                             class="logo"></img></a>
                     <p class="nameHotel">Hotel <span>BlueSky</span></p>
@@ -61,60 +61,73 @@
 
         <!-- Begin: add item -->
         <div class="container">
-            
-            <form action="">
-                <h3>Thêm phòng mới</h3>
+        <?php
+            require_once '../connection.php';
+            $id = $_GET['idaccount'];
+            $sql = "SELECT * FROM user where id='$id'";
+
+                     try {
+                     $stmt = $conn->prepare($sql);
+                     $stmt->execute();
+                     } catch (PDOException $ex) {
+                         die;
+                     }
+ 
+                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        $iduser = $row["id"];
+                        $username = $row["username"];
+                        $password = $row["password"];
+                        $name = $row["name"];
+                        $age = $row["age"];
+                        $sex = $row["sex"];
+                        $diachi = $row["diachi"];
+                         
+                       
+                     }
+        ?>
+            <form action="updateAccount.php" method="POST">
+                <h3>Sửa thông tin tài khoản</h3>
                 <div class="row">
-                    <div class="form-group col-lg-6">
-                        <label for="id">ID phòng : </label> <br>
-                        <input type="text" id="id" placeholder="ID phòng">
-                    </div>
+                    
+                    <input hidden type="text" id="id" name="id" value="<?php echo $iduser;?>" placeholder="ID tài khoản">
+                  
 
                     <div class="form-group col-lg-6">
-                        <label for="name">Tên phòng : </label> <br>
-                        <input type="text" id="name" placeholder="Tên phòng">
-                    </div>
-
-                    <div class="form-group col-lg-6">
-                        <label for="people">Số người : </label> <br>
-                        <input type="number" id="people" placeholder="Số người">
+                        <label for="username">Tên tài khoản : </label> <br>
+                        <input type="text" id="username" name ="username" value="<?php echo $username ;?>" placeholder="Tên tài khoản ">
                     </div>
 
                     <div class="form-group col-lg-6">
-                        <label for="price">Giá : </label> <br>
-                        <input type="text" id="price" placeholder="Giá">
+                        <label for="people">Mật khẩu: </label> <br>
+                        <input type="text" id="people" name="password" value="<?php echo $password;?>" placeholder="Mật khẩu">
+                    </div>
+
+
+
+                    <div class="form-group col-lg-6">
+                        <label for="img">Họ và Tên : </label> <br>
+                        <input type="" id="img" name="hoten" value="<?php echo $name;?>" placeholder="Họ và Tên">
                     </div>
 
                     <div class="form-group col-lg-6">
-                        <label for="img">Ảnh : </label> <br>
-                        <input type="text" id="img" placeholder="Link Ảnh">
+                        <label for="status">Giới tính : </label><br>
+                        
+                        <input type="" id="img" name="sex" value="<?php echo $sex;?>" placeholder="Họ và Tên">
                     </div>
 
                     <div class="form-group col-lg-6">
-                        <label for="status">Trạng thái : </label>
-                        <select id="status">
-                            <option value="">--------</option>
-                            <option value="available">Trống</option>
-                            <option value="unvailable">Hết</option>
-                        </select>
+                        <label for="img">Tuổi: </label> <br>
+                        <input type="text" id="img" name="age" value="<?php echo $age;?>" placeholder="Tuổi">
                     </div>
 
                     <div class="form-group col-lg-6">
-                        <label for="option">Loại phòng : </label> 
-                        <select id="option">
-                            <option value="">-----------</option>
-                            <option value="vip">Vip</option>
-                            <option value="thuong">Thường</option>
-                            <option value="dacbiet">Đặc biệt</option>
-                        </select>
+                        <label for="img">Địa chỉ: </label> <br>
+                        <input type="" id="img" name="diachi"value="<?php echo $diachi;?>" placeholder="Địa chỉ">
                     </div>
 
-                    <div class="form-group col-lg-12">
-                        <label for="description">Mô tả phòng : </label> <br>
-                        <textarea name="" id="description" placeholder="Mô tả phòng"></textarea>
-                    </div>
+                   
 
-                    <input type="submit" value="Submit" class="button-submit col-lg-2">
+                    <input type="submit" value="Lưu" class="button-submit col-lg-2">
                 </div>
             </form>
         </div>
@@ -122,10 +135,6 @@
         <!-- End: add item -->
     </div>
     <!-- Begin: Script -->
-    <script type="text/javascript">
-        CKEDITOR.replace('description');
-    </script>
-
     <script>
         var icon = document.querySelector(".icon-menu")
         var menu = document.querySelector(".category")

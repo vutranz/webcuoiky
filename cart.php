@@ -68,7 +68,7 @@ session_start();
                 </thead>
                 <tbody>
                     <tr>
-
+                        <td> <input hidden name="id" value="<?php echo "$id"; ?>"></input></td>
                         <td><input hidden name="image" value="<?php echo "$image"; ?>">
                             <image src="<?php echo $image; ?>" style="max-height: 100px">
                         </td>
@@ -77,7 +77,7 @@ session_start();
                         <td><input hidden name="mota" value="<?php echo "$mota"; ?>"><?php echo $mota; ?></input></td>
                         <td><input hidden name="name" value="<?php echo "$name"; ?>"><?php echo $name; ?></input></td>
                         <td><input hidden name="trangthai" value="<?php echo "$trangthai"; ?>"><?php echo $trangthai; ?></input></td>
-                        <input hidden name="price_update" value="<?php echo "$price_update"; ?>"><?php echo $price_update; ?></input>
+                        
 
                     </tr>
 
@@ -103,44 +103,27 @@ session_start();
                 
                 <div class="form-group">
                     <label for="checkin">Ngày đến :</label>
-                    <input type="date" name="date" id="checkin" placeholder="Ngày đến">
+                    <input type="date" name="ngayden" id="checkin" placeholder="Ngày đến">
                 </div>
     
                 <div class="form-group">
                     <label for="checkout">Ngày đi :</label>
-                    <input type= "date"name="date" id="checkout" placeholder="Ngày đi">
+                    <input type= "date" name="ngaydi" id="checkout" placeholder="Ngày đi">
                 </div>
         
             </div>
 
-            <p class="heading-ser">Chọn dịch vụ:</p>
-            <div class="ser">
-
-                <div class="form-group-checkbox">
-                    <label for="taxi">Taxi</label>
-                    <input id="taxi" type="checkbox">
-                </div>
-        
-                <div class="form-group-checkbox">
-                    <label for="bres">Ăn sáng</label>
-                    <input id="bres" type="checkbox">
-                </div>
-        
-                <div class="form-group-checkbox">
-                    <label for="dinner">Ăn tối</label>
-                    <input id="dinner" type="checkbox">
-                </div>
-                
-                <div class="form-group-checkbox">
-                    <label for="lunch">Ăn trưa</label>
-                    <input id="lunch" type="checkbox">
-                </div>
-            </div>
+           
 
             <div class="form-group-total">
                 <label class="label">Thành tiền : </label>
-                <input hidden name="price_update" value="<?php echo "$price_update"; ?>"><?php echo $price_update; ?></input>
+                <input hidden name="price_update" value="<?php echo $price; ?>"><?php echo $price_update; ?></input>
             </div>
+            <?php
+                if(isset($_GET['error'])){?>
+                    <p style="color:red;font-weight:600;font-size:20px" id="message"><?php echo $_GET['error'];?></p>
+               
+            <?php }?>
             <button type="submit" name="order_click" class=" btn-success">Thanh toán</button>
         </form>
 

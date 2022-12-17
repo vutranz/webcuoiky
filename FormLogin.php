@@ -107,8 +107,11 @@
         
         <form  action="login.php" method="post" class="form-login">
             <p class="form-name">Đăng nhập</p>
-            <!-- ID:
-            <input hidden type="text" th:field="*{id}"> <br> -->
+            <?php
+                if(isset($_GET['error'])){?>
+                    <p style="color:red;font-weight:600;font-size:20px" id="message"><?php echo $_GET['error'];?></p>
+               
+            <?php }?>
             <div class="form-group">
                 <label for="username" class="label">Username</label> <br>
                 <input type="text"  id="username" name="username"> <br>

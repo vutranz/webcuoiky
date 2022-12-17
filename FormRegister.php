@@ -99,42 +99,51 @@
             cursor: pointer;
         } */
     </style>
+    <script>
+        var i = document.querySelector('#message')
+        i.innerHTML=""
+    </script>
 </head>
 <body>
     <div class="main">
         <form action="register.php" method="post" class="form-login">
             <p class="form-name">Đăng ký</p>
-            
+            <?php
+                if(isset($_GET['error'])){?>
+                    <p style="color:red;font-weight:600;font-size:20px" id="message"><?php echo $_GET['error'];?></p>
+               
+            <?php }?>
+           
             <div class="row">
 
                 <div class="form-group">
                     <label for="username" class="label">Username :</label> <br>
-                    <input type="text"  id="username" name="username" required placeholder="Username"> 
+                    <input type="text"  id="username" name="username"  placeholder="Username"> 
                 </div>
         
                 <div class="form-group">
                     <label for="password" class="label">Password :</label> <br>
-                    <input type="password"  id="password" name="password" required placeholder="Password"> 
+                    <input type="password"  id="password" name="password"  placeholder="Password"> 
                 </div>
     
                 <div class="form-group">
                     <label for="fullname" class="label">Name :</label> <br>
-                    <input type="text"  id="name" name="fullname" required placeholder="Your fullname"> 
+                    <input type="text"  id="name" name="fullname"  placeholder="Your fullname"> 
                 </div>
     
                 <div class="form-group">
                     <label for="age" class="label">Age :</label> <br>
-                    <input type="number"  id="age" name="age" required placeholder="Age"> 
+                    <input type="number"  id="age" name="age"  placeholder="Age"> 
                 </div>
     
                 <div class="form-group">
                     <label for="gioitinh" class="label">Gender :</label> <br>
-                    <input type="text"  id="sex" name="gioitinh" required placeholder="Gender(nam/nữ)"> 
+                    <input type="text"  id="sex" name="gioitinh"  placeholder="Gender(nam/nữ)"> 
                 </div>
     
                 <div class="form-group">
                     <label for="diachi" class="label">Address :</label> <br>
-                    <input type="text"  id="sex" name="diachi" required placeholder="Your Address"> 
+                    <input type="text"  id="sex" name="diachi"  placeholder="Your Address"> 
                 </div>
         
                 <button type="submit" id="submit">Đăng ký</button>

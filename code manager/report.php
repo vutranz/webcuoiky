@@ -21,7 +21,7 @@
             <div class="headerBox">
                 <i class="fa-solid fa-bars icon-menu"></i>
                 <div class="headerBox__logo">
-                    <a href=""><img
+                    <a href="../index.php"><img
                             src="https://images.squarespace-cdn.com/content/v1/5a297d3dfe54eff9efa967c0/1513717270167-MOBLZQOP1MY8Z6M77L33/Logo_blue.png?format=300w"
                             class="logo"></img></a>
                     <p class="nameHotel">Hotel <span>BlueSky</span></p>
@@ -52,10 +52,10 @@
                 <i class="fa-solid fa-arrow-left icon-left"></i>
             </div>
             <!-- main category -->
-            <a href="" class="manager-room">Quản lý phòng</a>
-            <a href="" class="manager-account">Quản lý tài khoản</a>
-            <a href="" class="statistical">Thống kê</a>
-            <a href="" class="history-booking">Lịch sử đặt phòng</a>
+            <a href="index.php" class="manager-room">Quản lý phòng</a>
+            <a href="manager-account.php" class="manager-account">Quản lý tài khoản</a>
+            <a href="report.php" class="statistical">Thống kê</a>
+            <a href="manager-history.php" class="history-booking">Lịch sử đặt phòng</a>
         </div>
         <!-- End: Caterogy -->
 
@@ -70,7 +70,7 @@
             <table>
                 <tr>
                     <th class="l-stt">STT</th>
-                    <th class="l-id">ID phòng</th>
+                    <th class="l-id">Tên tài khoản</th>
                     <th class="l-name">Tên phòng</th>
                     <th class="l-option">Loại phòng</th>
                     <th class="l-price">Giá tiền(bao gồm dịch vụ)</th>
@@ -80,8 +80,52 @@
                 </tr>
 
                 <!-- data -->
+            <?php
+                require_once '../connection.php';
+                $sql1 = "SELECT SUM(price) FROM `oder_room`";
+                $sql = "SELECT * FROM `oder_room`";
+                    
+                try {
+                $stmt = $conn->prepare($sql);
+                $stmt->execute();
+                } catch (PDOException $ex) {
+                    die;
+                }
+                $i=0;
+                $total=0;
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    $i++;
+                    $id = $row["id"];
+                    $name=$row['name'];
+                    $taikhoan = $row["taikhoan"];
+                    $loaiphong = $row["loaiphong"];
+                    $price = $row["price"];
+                    $ngayden = $row["ngayden"];
+                    $ngaydi = $row["ngaydi"];
+                    $total=$total+$price;
+                    $price_update=number_format($price,0,",",".");
+                    echo "<tr>";
+                    echo "<td class=\"stt\">$i</td>";
+                    echo "<td class=\"id\">";
+                    echo "<p>$taikhoan</p>"; 
+                    echo "</td>";
+                    echo "<td class=\"name\">";
+                    echo "<p>$name</p>";
+                    echo "</td>";
+                    echo "<td class=\"option\">";
+                    echo "<p>$loaiphong</p>";
+                    echo "</td>";
+                    
+                    echo "<td class=\"price\">";
+                    echo "<p>$price_update</p>";
+                    echo "</td>";
 
-                <tr>
+                    echo "</tr>";
+                }
+            ?>
+                
+
+                <!-- <tr>
                     <td class="stt">1</td>
                     <td class="id">
                         <p>1</p> 
@@ -97,33 +141,15 @@
                         <p>20/08/2002</p>
                     </td>
 
-                </tr>
-
-                <tr>
-                    <td class="stt">1</td>
-                    <td class="id">
-                        <p>1</p> 
-                    </td>
-                    <td class="name">
-                        <p>l</p>
-                    </td>
-                    <td class="option">
-                        <p>Nguyen Minh Nghia</p>
-                    </td>
-                    
-                    <td class="price">
-                        <p>20/08/2002</p>
-                    </td>
-
-                </tr>
+                </tr> -->
             </table>
         </div>
         <!-- End: render -->
         
         <!-- Begin: total -->
         <div class="total">
-            <p class="label">Total : </p>
-            <p class="cost">20000</p> VNĐ
+            <p class="label">Total  : </p>
+            <p class="cost"><?php $price_update=number_format($total,0,",","."); echo$price_update;?>VND</p> 
         </div>
         <!-- End: total -->
     </div>

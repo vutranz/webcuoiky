@@ -1,4 +1,5 @@
 <?php
+  session_start();
   require_once 'connection.php';
 ?>
 <!DOCTYPE html>
@@ -38,7 +39,7 @@
               </a>
             </li>
               <li class="nav-item">
-                  <a class="nav-link" href="#">Username</a>
+                  <a class="nav-link" href="#"><?php echo $_SESSION['username']; ?></a>
               </li>
             <li class="nav-item">
               <a class="nav-link" href="cart.php">Cart (4 items)</a>

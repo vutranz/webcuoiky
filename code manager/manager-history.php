@@ -21,7 +21,7 @@
             <div class="headerBox">
                 <i class="fa-solid fa-bars icon-menu"></i>
                 <div class="headerBox__logo">
-                    <a href=""><img
+                    <a href="../index.php"><img
                             src="https://images.squarespace-cdn.com/content/v1/5a297d3dfe54eff9efa967c0/1513717270167-MOBLZQOP1MY8Z6M77L33/Logo_blue.png?format=300w"
                             class="logo"></img></a>
                     <p class="nameHotel">Hotel <span>BlueSky</span></p>
@@ -52,10 +52,10 @@
                 <i class="fa-solid fa-arrow-left icon-left"></i>
             </div>
             <!-- main category -->
-            <a href="" class="manager-room">Quản lý phòng</a>
-            <a href="" class="manager-account">Quản lý tài khoản</a>
-            <a href="" class="statistical">Thống kê</a>
-            <a href="" class="history-booking">Lịch sử đặt phòng</a>
+            <a href="index.php" class="manager-room">Quản lý phòng</a>
+            <a href="manager-account.php" class="manager-account">Quản lý tài khoản</a>
+            <a href="report.php" class="statistical">Thống kê</a>
+            <a href="manager-history.php" class="history-booking">Lịch sử đặt phòng</a>
         </div>
         <!-- End: Caterogy -->
 
@@ -76,12 +76,68 @@
                     <th class="l-price">Giá tiền(VNĐ)</th>
                     <th class="l-checkIn">Ngày nhận phòng</th>
                     <th class="l-checkOut">Ngày trả phòng</th>
-                    <th class="l-hand">tùy chỉnh</th>
+                    <!-- <th class="l-hand">tùy chỉnh</th> -->
                 </tr>
+                <?php
+                    require_once '../connection.php';
+                     $sql = "SELECT * FROM `oder_room`";
+                    
+                     try {
+                     $stmt = $conn->prepare($sql);
+                     $stmt->execute();
+                     } catch (PDOException $ex) {
+                         die;
+                     }
+ 
+                     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        $id = $row["id"];
+                         $taikhoan = $row["taikhoan"];
+                         $loaiphong = $row["loaiphong"];
+                         $price = $row["price"];
+                         $price_update=number_format($price,0,",",".");
+                         $ngayden = $row["ngayden"];
+                         $ngaydi = $row["ngaydi"];
 
+                        echo "<tr>";
+                        echo "<td class=\"id\">";
+                        echo "<p>1</p>"; 
+                        echo "</td>";
+                        echo "<td class=\"name-acc\">";
+                        echo "<p>$taikhoan</p>";
+                        echo "</td>";
+                        echo "<td class=\"option\">";
+                        echo "<p>$loaiphong</p>";
+                        echo "</td>";
+                        echo "<td class=\"people\">";
+                        echo "<p>2</p>";
+                        echo "</td>";
+                        echo "<td class=\"price\">";
+                        echo "<p>$price_update VND</p>";
+                        echo "</td>";
+                    
+                        echo "<td class=\"checkIn\">";
+                        echo "<p>$ngayden</p>";
+                        echo "</td>";
+                        echo "<td class=\"checkOut\">";
+                        echo "<p>$ngaydi</p>";
+                        echo "</td>";
+
+                //     <td class="hand">
+                //         <a href="" class="edit">
+                //             <i class="fa-solid fa-pen-to-square"></i>
+                //             Sửa
+                //         </a>
+                //         <a href="" class="delete">
+                //             <i class="fa-solid fa-trash"></i>
+                //             Xóa
+                //         </a>
+                //     </td>
+                    echo "</tr>";
+                     }
+                ?>
                 <!-- data -->
 
-                <tr>
+                <!-- <tr>
                     <td class="id">
                         <p>1</p> 
                     </td>
@@ -115,7 +171,7 @@
                             Xóa
                         </a>
                     </td>
-                </tr>
+                </tr> -->
             </table>
         </div>
         <!-- End: render -->

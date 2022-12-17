@@ -38,15 +38,25 @@ session_start();
               <span class="sr-only">(current)</span>
             </a>
           </li>
+
           <li class="nav-item">
-            <a class="nav-link" href="#"><?php echo $_SESSION['username']; ?></a>
+            <a class="nav-link" href="#"> <?php echo $_SESSION['username'];?></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="cart.php">Cart (4 items)</a>
-          </li>
+
+          <?php
+              if($_SESSION['username']=="admin")
+              {
+                require_once 'isAdmin.php';
+              }
+              else
+              {
+                require_once 'isUser.php';
+              }
+          ?>
+          
           <li class="nav-item">
             <a class="nav-link" href="logout.php">Logout</a>
-          </li>
+          </li>  -->
         </ul>
       </div>
     </div>
