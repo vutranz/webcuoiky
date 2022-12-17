@@ -1,7 +1,8 @@
 <?php
-require_once 'connection.php';
-session_start();
+    require_once('connection.php');
+    session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -107,7 +108,7 @@ session_start();
         </div>
 
         <!-- Begin: Search -->
-        <form action="" method="POST">
+        <form action="seach.php" method="POST">
                   <div class="input-search">
 
           <div class="form-group">
@@ -135,12 +136,13 @@ session_start();
 
         <div class="row">
           <?php
-
-          $sql = "SELECT * FROM phong";
+          $people=$_GET['people'];
+          $sql = "SELECT * FROM phong where songuoi='$people'";
 
           try {
             $stmt = $conn->prepare($sql);
             $stmt->execute();
+            // header("location:./index.php");
           } catch (PDOException $ex) {
             die;
           }
@@ -175,6 +177,7 @@ session_start();
             echo "</div>";
             echo "</div>";
             echo "</div>";
+           
           }
           ?>
 

@@ -117,7 +117,7 @@ session_start();
 
             <div class="form-group-total">
                 <label class="label">Thành tiền : </label>
-                <input hidden name="price_update" value="<?php echo $price; ?>"><?php echo $price_update; ?></input>
+                <input  hidden name="price_update" value="<?php echo $price; ?>"><?php echo $price_update; ?> VND</input>
             </div>
             <?php
                 if(isset($_GET['error'])){?>

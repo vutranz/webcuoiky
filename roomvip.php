@@ -97,7 +97,8 @@
         </div>
 
         <!-- Begin: Search -->
-        <div class="input-search">
+        <form action="" method="POST">
+                  <div class="input-search">
 
           <div class="form-group">
             <label for="checkin">Check In</label>
@@ -108,21 +109,24 @@
             <label for="checkout">Check Out</label>
             <input type="date" name="checkout" id="">
           </div>
-
+            
           <div class="form-group">
             <label for="people">People</label>
             <input type="number" name="people" id="">
           </div>
 
           <input type="submit" value="Search">
-        </div>
+          </div>
+
+        </form>
+       
 
         <!-- End: Search -->
 
           <div class="row">
           <?php
               
-             $sql = "SELECT * FROM phong where loaiphong='VIP'";
+             $sql = "SELECT * FROM phong where loaiphong='VIP' and loaiphong='VIP'";
 
              try{
                  $stmt = $conn->prepare($sql);

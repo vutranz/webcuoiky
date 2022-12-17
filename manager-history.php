@@ -291,7 +291,7 @@ td {
             <div class="headerBox">
                 <i class="fa-solid fa-bars icon-menu"></i>
                 <div class="headerBox__logo">
-                    <a href="../index.php"><img
+                    <a href="index.php"><img
                             src="https://images.squarespace-cdn.com/content/v1/5a297d3dfe54eff9efa967c0/1513717270167-MOBLZQOP1MY8Z6M77L33/Logo_blue.png?format=300w"
                             class="logo"></img></a>
                     <p class="nameHotel">Hotel <span>BlueSky</span></p>
@@ -335,7 +335,7 @@ td {
         <div class="render">
             <table>
                 <tr>
-                    <th class="l-id">ID</th>
+                    <th class="l-id">STT</th>
                     <th class="l-name-acc">Tên tài khoản đặt phòng</th>
                     <th class="l-option">Loại phòng</th>
                     <th class="l-people">Số người</th>
@@ -357,8 +357,9 @@ td {
                      } catch (PDOException $ex) {
                          die;
                      }
- 
+                     $i=0;
                      while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        $i++;
                         $id = $row["id"];
                          $taikhoan = $row["taikhoan"];
                          $loaiphong = $row["loaiphong"];
@@ -369,7 +370,7 @@ td {
 
                         echo "<tr>";
                         echo "<td class=\"id\">";
-                        echo "<p>1</p>"; 
+                        echo "<p>$i</p>"; 
                         echo "</td>";
                         echo "<td class=\"name-acc\">";
                         echo "<p>$taikhoan</p>";

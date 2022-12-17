@@ -16,6 +16,7 @@
        $id=$row["maphong"];
        $image = $row["image"];
        $price=$row["gia"];
+       $price_update=number_format($price,0,",",".");
        $name=$row["name"];
        $trangthai=$row["trangthai"];
        $songuoi=$row["songuoi"];
@@ -40,11 +41,15 @@
 <body>
     <div class="main">
         <form action="cart.php?idroom=<?php echo $id;?>" method="post">
-                <p><?php echo $id;?></p>
+                
                 <image class="img" src="<?php echo $image;?>">
                 <div class="text">
-
+                
                     <div class="infor">
+                    <div class="infor-item">
+                            <p class="name">ID :</p>
+                            <p><?php echo $id;?></p>
+                        </div>
                         <div class="infor-item">
                             <p class="name">Name room :</p>
                             <p><?php echo $name;?></p>
@@ -52,7 +57,7 @@
 
                         <div class="infor-item">
                             <p class="price">Price :</p>
-                            <p><?php echo $price;?></p>
+                            <p><?php echo $price_update;?>  VND</p>
                         </div>
 
                         <div class="infor-item">

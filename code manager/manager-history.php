@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,11 +32,10 @@
 
                 <div class="headerCtrl">
                     <p class="userLogin">
-                        <i class="fa-regular fa-user" style="margin-right: 5px"></i>
-                        Nguyen Minh Nghia
-                        <p>(admin)</p>
+                        <i class="fa-regular fa-user" style="margin-right: 5px"></a></i>
+                        <p><?php echo $_SESSION['username']?></p>
                     </p>
-                    <div class="logout">Đăng xuất</div>
+                    <a href="../logout.php" class="logout">Đăng xuất</a>
                 </div>
             </div>
         </header>
@@ -45,7 +47,7 @@
             <div class="admin-status">
                 <i class="fa-solid fa-user-large icon-person"></i>
                 <div class="status">
-                    <div class="status__name">Nguyen Minh Nghia</div>
+                    <div class="status__name"><?php echo $_SESSION['username'];?></div>
                     <i class="fa-sharp fa-solid fa-circle icon-status">                          
                         <span class="">Online</span></i>
                 </div>
